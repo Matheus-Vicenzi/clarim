@@ -1,0 +1,41 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: django-dev
+    volumes:
+      - .:/app
+    networks:
+      - app-network
+    ports:
+      - "8000:8000"
+    environment:
+      - DB_NAME=meubanco
+      - DB_USER=meuusuario
+      - DB_PASSWORD=minhasenha
+      - DB_HOST=db
+      - DB_PORT=3306
+      - DEBUG=False # Set to True for development
+      - SECRET_KEY=your_secret_key_here
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8.0
+    container_name: mysql-db
+    environment:
+      MYSQL_DATABASE: meubanco
+      MYSQL_USER: meuusuario
+      MYSQL_PASSWORD: minhasenha
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3306:3306"
+    networks:
+      - app-network
+    volumes:
+      - ./mysql_data:/var/lib/mysql
+
+networks:
+  app-network:
+    driver: bridge
