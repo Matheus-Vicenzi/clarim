@@ -29,3 +29,10 @@ jobs:
           context: .
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/clarim:latest
+
+      - name: Disparar deploy via webhook
+        if: success()
+        uses: distributhor/workflow-webhook-action@v3
+        with:
+          webhook_url: ${{ secrets.WEBHOOK_URL }}
+          secret: ${{ secrets.WEBHOOK_SECRET }}
