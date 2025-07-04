@@ -63,4 +63,3 @@ pip-wheel-metadata/
 README.md
 Dockerfile
 docker-compose.yaml
-entrypoint.sh
