@@ -32,7 +32,7 @@ jobs:
 
       - name: Disparar deploy via webhook
         if: success()
-        uses: distributhor/workflow-webhook-action@v3
+        uses: distributhor/workflow-webhook@v3
         with:
           webhook_url: ${{ secrets.WEBHOOK_URL }}
           secret: ${{ secrets.WEBHOOK_SECRET }}
