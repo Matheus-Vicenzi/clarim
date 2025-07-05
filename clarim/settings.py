@@ -124,9 +124,9 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
-# FORCE_SCRIPT_NAME = "/clarim" if not DEBUG else None
+FORCE_SCRIPT_NAME = "/clarim" if not DEBUG else None
 
-STATIC_URL = '/static/' if DEBUG else '/clarim/static/'
+STATIC_URL = '/clarim/static/' if not DEBUG else '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 STATICFILES_DIRS = []
