@@ -1,8 +1,6 @@
 services:
   web:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: python:3.13-slim
     container_name: django-dev
     volumes:
       - .:/app
