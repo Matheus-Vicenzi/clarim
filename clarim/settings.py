@@ -27,6 +27,11 @@ DEBUG = os.getenv('DEBUG', 'True').lower() in ('true', '1', 'yes')
 
 ALLOWED_HOSTS = ["*"]
 
+CSRF_TRUSTED_ORIGINS = [
+    "http://localhost:8000",
+    "http://kong:8000",
+    "http://srv894191.hstgr.cloud",
+]
 
 # Application definition
 
